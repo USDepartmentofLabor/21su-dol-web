@@ -33,7 +33,7 @@ def highlight(text: str, terms_list: List[Tuple[int, int]]) -> str:
             # i.e. if the original text has \n, should use that instead of space
             result += f"{doc[previous_end:term_start].text} "
         # get all highlighted terms
-        result += f'<mark style="background: #FFBE2E!important; cursor: pointer; " onclick="myFunction(\'{word_id}\')">{word}</mark>'
+        result += f'<a class="usa-link" role="button" style="background: #FFBE2E!important; cursor: pointer; " onclick="myFunction(\'{word_id}\')">{word}</a>'
         # if the current highlighted term is in the middle of the doc, right pad with a space
         if term_end < len(doc):
             result += " "
