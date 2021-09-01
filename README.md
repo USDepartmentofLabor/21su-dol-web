@@ -48,7 +48,7 @@ python3 -m venv [name of virtual environment]
 Clone this repository:
 
 ```
-git clone https://github.com/lujamie/dol-web.git
+git clone https://github.com/USDepartmentofLabor/ableist-language-detector-web.git
 ```
 
 Install the required packages:
