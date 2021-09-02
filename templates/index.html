@@ -38,17 +38,17 @@
 			<div class="tablet:grid-col-8">
 				<h2>Get Started</h2>
 				<form class="form" action="{{ url_for('predict')}}" method="POST">
-						<label class="usa-label" for="message"><p>
-							Paste the job description into the textbox below.    
-						</label>
-						<textarea
-							class="usa-textarea"
-							id="message"
-							name="message" 
-							type="text"
-							required
-							aria-required="true"
-						></textarea>
+					<label class="usa-label" for="message">
+						Paste the job description into the textbox below.
+					</label>
+					<textarea
+						class="usa-textarea"
+						id="message"
+						name="message" 
+						type="text"
+						required
+						aria-required="true">
+					</textarea>
 					<input type="submit" class="usa-button margin-top-2" value="Check Job Description">
 				</form>
 			</div>

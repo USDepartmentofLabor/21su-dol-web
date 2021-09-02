@@ -79,9 +79,8 @@
 							<div id="{{term_id.get(term)}}" data-term='{{ term }}' data-alternatives='{{ replacements|tojson }}' data-example="{{examples.get(term)}}"></div>
 							{% endfor %}
 							{% if show_results %}
-								<div class="usa-alert usa-alert--info usa-alert--no-icon">
-									<div id='output' class="usa-alert__body">
-										<h2 style="text-align: center;">Ableist Language Results</h2>
+								<div id="output__container">
+									<div id="output">
 									</div>
 								</div>
 							{% endif %}
@@ -93,6 +92,11 @@
 						function myFunction(id) {
 							let words = document.querySelector(`#${id}`);
 							let alt_verbs = JSON.parse(words.dataset.alternatives)
+							const containerEl = document.getElementById('output__container')
+							containerEl.classList.add('usa-alert', 'usa-alert--info', 'usa-alert--no-icon')
+
+							const outputEl = document.getElementById('output')
+							outputEl.classList.add('usa-alert__body')
 
 							header = `<h2 class="usa-alert__heading">"${words.dataset.term}"</h2>`
 							subtitle = "<p>Below are suggested phrases to replace the highlighted language:</p>"
@@ -101,12 +105,15 @@
 							ul_end = "</ul"
 
 							example = `<p>Example: ${words.dataset.example}</p>`
-							document.getElementById('output').innerHTML = header + subtitle + ul_start;
+							outputEl.innerHTML = header + subtitle + ul_start;
 							for (let i = 0; i < alt_verbs.length; i++) {
 								verb = alt_verbs[i]
-								document.getElementById('output').innerHTML += `<li>${verb}</li>`
+								outputEl.innerHTML += `<li>${verb}</li>`
 							}
-							document.getElementById('output').innerHTML += ul_end + example
+							outputEl.innerHTML += ul_end + example
+							if (outputEl.getBoundingClientRect().top > (window.innerHeight - 35)) {
+								outputEl.scrollIntoView()
+							}
 						}
 					</script>
 				</div>
