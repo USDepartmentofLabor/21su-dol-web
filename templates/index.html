@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-    {% block maincontent %}
+{% block maincontent %}
 	<nav aria-label="Primary navigation" class="usa-nav left-margin">
         <div class="usa-nav__inner left-margin">
         <button class="usa-nav__close">
@@ -26,62 +26,32 @@
 	
 	<div class="usa-section">
 		<div class="grid-container">
-			<div class="grid-row grid-gap">
-				<div class="tablet:grid-col-8">
-					<h1>Get Started</h1>
+			<h1>Find ableist language in your job posting</h1>
 			
-					<p>
-					Paste the job description into the textbox below.    
-					</p>
-							
-					<hr>
-				</div>
-			</div>
-
-			<div class="grid-row grid-gap">
-				<main class="tablet:grid-col-8" id="main-content">
-					<div class="usa-prose">
-							<form class="form" action="{{ url_for('predict')}}" method="POST">
-								<fieldset class="usa-fieldset">
-								<textarea
-									class="usa-textarea usa-textarea--xl"
-									name="message" 
-									type="text"
-									required
-									aria-required="true"
-									placeholder="Enter Job Description"
-									style="max-width: 100%; min-height: 20rem; resize: none;"
-									
-								></textarea>
-
-								</fieldset>
-							
-					</div>
-				</main>
-				
-				<div class = "tablet:grid-col-4">
-					<div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
-					<div class="usa-summary-box__body">
-						<h3 class="usa-summary-box__heading" id="summary-box-key-information">
-							How To Use This Tool
-						</h3>
-						<div class="usa-summary-box__text">
-							<p style = "line-height: 2rem;">Ableist language is language that is offensive to people with disability. This type of language in job descriptions can cause people with disabilities to feel excluded from jobs that they are qualified for. This tool checks job descriptions for ableist language and suggests alternative phrasing that supports more fair and inclusive hiring.</p>
-				
-						</div>
-					</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="grid-row">
-				<div class="tablet:grid-col-8">
-					<br />
-
-					<input type="submit" class="usa-button" style="float: left" value="Check Job Description">
+			<h2>
+				How To Use This Tool
+			</h2>
+			<p class="line-height-sans-6 measure-6">
+				Ableist language is language that is offensive to people with disability. This type of language in job descriptions can cause people with disabilities to feel excluded from jobs that they are qualified for. This tool checks job descriptions for ableist language and suggests alternative phrasing that supports more fair and inclusive hiring.
+			</p>
+			
+			<div class="tablet:grid-col-8">
+				<h2>Get Started</h2>
+				<form class="form" action="{{ url_for('predict')}}" method="POST">
+						<label class="usa-label" for="message"><p>
+							Paste the job description into the textbox below.    
+						</label>
+						<textarea
+							class="usa-textarea"
+							id="message"
+							name="message" 
+							type="text"
+							required
+							aria-required="true"
+							placeholder="We are looking for a candidate who exhibits..."
+						></textarea>
+					<input type="submit" class="usa-button margin-top-2" value="Check Job Description">
 				</form>
-				</div>
 			</div>
 		</div>		
 	</div>
