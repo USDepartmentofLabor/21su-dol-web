@@ -99,52 +99,54 @@
       </nav>
     </header>
 
-    {% block maincontent %}
-    {% endblock %}
+    <main id="main-content">
+      {% block maincontent %}
+      {% endblock %}
+    </main>
   
     <footer>
-        <div class="grid-container usa-footer__return-to-top">
-          <a href="#">Return to top</a>
-        </div>
-        <div class="grid container" style="background-color:#f0f0f0; padding-left: 1.0rem;">
-          <div class="grid-row">
-            <div class="mobile-lg:grid-col-8">
-              <nav class="usa-footer__nav" aria-label="Footer navigation,">
-                <ul class="grid-row grid-gap">
-                  <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content" >
-                    <a class="usa-footer__primary-link" href="javascript:void(0);"> Privacy Policy </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+      <div class="grid-container usa-footer__return-to-top">
+        <a href="#">Return to top</a>
+      </div>
+      <div class="grid container" style="background-color:#f0f0f0; padding-left: 1.0rem;">
+        <div class="grid-row">
+          <div class="mobile-lg:grid-col-8">
+            <nav class="usa-footer__nav" aria-label="Footer navigation,">
+              <ul class="grid-row grid-gap">
+                <li class="mobile-lg:grid-col-6 desktop:grid-col-auto usa-footer__primary-content" >
+                  <a class="usa-footer__primary-link" href="javascript:void(0);"> Privacy Policy </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
+      </div>
 
-        <div class="grid-container" style='background-color:#dfe1e2; padding-left: 1.0rem; padding-top: 1rem;  padding-bottom: 1rem;'>
-          <div class="usa-footer__logo grid-row grid-gap-2">
-            <div class="grid-col-auto">
-              <img
-                class="usa-footer__logo-img"
-                src="/static/uswds-2.12.0/img/DOL-MasterLogo_BLUE.png" width="25" height="25"
-                alt="Department of Labor icon"
-              />
-            </div>
-            <div class="grid-col-auto">
-              <p class="usa-footer__logo-heading">Department of Labor</p>
-            </div>
+      <div class="grid-container" style='background-color:#dfe1e2; padding-left: 1.0rem; padding-top: 1rem;  padding-bottom: 1rem;'>
+        <div class="usa-footer__logo grid-row grid-gap-2">
+          <div class="grid-col-auto">
+            <img
+              class="usa-footer__logo-img"
+              src="/static/uswds-2.12.0/img/DOL-MasterLogo_BLUE.png" width="25" height="25"
+              alt="Department of Labor icon"
+            />
+          </div>
+          <div class="grid-col-auto">
+            <p class="usa-footer__logo-heading">Department of Labor</p>
+          </div>
 
-            <div class="grid-col-auto">
-              <img
-                class="usa-footer__logo-img"
-                src="/static/uswds-2.12.0/img/xD-logo.png" width="20" height="20"
-                alt="xD icon"
-                /> 
-            </div>
-            <div class="grid-col-auto">
-              <p class="usa-footer__logo-heading">xD - U.S. Census Bureau</p>
-            </div>
+          <div class="grid-col-auto">
+            <img
+              class="usa-footer__logo-img"
+              src="/static/uswds-2.12.0/img/xD-logo.png" width="20" height="20"
+              alt="xD icon"
+            /> 
+          </div>
+          <div class="grid-col-auto">
+            <p class="usa-footer__logo-heading">xD - U.S. Census Bureau</p>
+          </div>
         </div>
-
+      </div>
     </footer>
 
   <script src="/static/uswds-2.12.0/js/uswds.min.js"></script>
