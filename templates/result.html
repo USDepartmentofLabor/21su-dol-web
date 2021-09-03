@@ -58,13 +58,12 @@
 						Click on a highlighted phrase for more information  
 						</p>
 						{% endif %}
-						<hr>
 					</div>
 				</div>
 
 				<div class="grid-gap results-wrapper" >
 					<div class="results">
-						<section class="tablet:grid-col-8" id="main-content" style="width:100%;">
+						<section class="tablet:grid-col-8 width-full" id="main-content">
 							<div class="usa-prose">
 								<div class ="result-box">
 									<p>{{result | safe}}</p>
@@ -74,7 +73,7 @@
 					</div>
 
 					<div class="info">
-						<div class = "tablet:grid-col-4" style="padding-left: 2em; width:100%">
+						<div class = "tablet:grid-col-4 width-full">
 							{% for term, replacements in alternatives.items() %} 
 							<div id="{{term_id.get(term)}}" data-term='{{ term }}' data-alternatives='{{ replacements|tojson }}' data-example="{{examples.get(term)}}"></div>
 							{% endfor %}
@@ -101,16 +100,17 @@
 							header = `<h2 class="usa-alert__heading">"${words.dataset.term}"</h2>`
 							subtitle = "<p>Below are suggested phrases to replace the highlighted language:</p>"
 
-							ul_start = "<ul>"
-							ul_end = "</ul"
+							ul_start = '<ul>'
+							ul_end = "</ul>"
 
 							example = `<p>Example: ${words.dataset.example}</p>`
-							outputEl.innerHTML = header + subtitle + ul_start;
+							let toAdd = header + subtitle + ul_start;
 							for (let i = 0; i < alt_verbs.length; i++) {
 								verb = alt_verbs[i]
-								outputEl.innerHTML += `<li>${verb}</li>`
+								toAdd += `<li class="margin-bottom-1">${verb}</li>`
 							}
-							outputEl.innerHTML += ul_end + example
+							toAdd += ul_end + example
+							outputEl.innerHTML += toAdd
 							if (outputEl.getBoundingClientRect().top > (window.innerHeight - 35)) {
 								outputEl.scrollIntoView()
 							}
