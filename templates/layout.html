@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <main role="main" class="cd-main-content odep-content">
+    <a class="usa-skipnav" href="#main-content">Skip to main content</a>
     <section class="usa-banner" aria-label="Official government website">
       <div class="usa-accordion">
         <header class="usa-banner__header">
@@ -64,22 +64,43 @@
     </section>
 
     <div class="usa-overlay"></div>
-      <header class="usa-header usa-header--extended">
-        <div class="usa-navbar left-margin">
-          <div class="usa-logo">
-            <em class="usa-logo__text">
-              <a href="{{ url_for('home') }}" title="Ableist Language Detector for Job Descriptions">
-              Ableist Language Detector for Job Descriptions
-              </a>
-            </em>
-          </div>
-          <button class="usa-menu-btn">Menu</button>
+    <header class="usa-header usa-header--extended">
+      <div class="usa-navbar left-margin">
+        <div class="usa-logo">
+          <em class="usa-logo__text">
+            <a href="{{ url_for('home') }}" title="Ableist Language Detector for Job Descriptions">
+            Ableist Language Detector for Job Descriptions
+            </a>
+          </em>
         </div>
+        <button class="usa-menu-btn">Menu</button>
+      </div>
+
+      <nav aria-label="Primary navigation" class="usa-nav left-margin">
+        <div class="usa-nav__inner left-margin">
+        <button class="usa-nav__close">
+          <img src="/static/uswds-2.12.0/img/usa-icons/close.svg" role="img" alt="Close" />
+        </button>
+        <ul class="usa-nav__primary usa-accordion">
+          <li class="usa-nav__primary-item">
+          <a href="/" class="usa-nav__link  {% if currPage=='home'%}usa-current{% endif %}">
+            <span>Home</span>
+          </a>
+          </li>
+    
+          <li class="usa-nav__primary-item">
+          <a href="{{ url_for('about') }}" class="usa-nav__link {{ currPage }} {% if currPage=='about'%}usa-current{% endif %} ">
+            <span>About</span>
+          </a>
+          </li>
+        </ul>
+        </div>
+        </div>
+      </nav>
+    </header>
 
     {% block maincontent %}
     {% endblock %}
-
-    </main>
   
     <footer>
         <div class="grid-container usa-footer__return-to-top">
