@@ -1,37 +1,30 @@
 {% extends "layout.html" %}
 
 {% block maincontent %}
-	
-	<div class="usa-section">
-		<div class="grid-container">
-			<h1>Find ableist language in your job posting</h1>
-			
-			<section class="padding-y-2">
-				<h2>
-					How To Use This Tool
-				</h2>
-				<p>
-					Ableist language is language that is offensive to people with disability. This type of language in job descriptions can cause people with disabilities to feel excluded from jobs that they are qualified for. This tool checks job descriptions for ableist language and suggests alternative phrasing that supports more fair and inclusive hiring.
-				</p>
-			</section>
-			
-			<div class="tablet:grid-col-8">
-				<h2>Get Started</h2>
-				<form class="form" action="{{ url_for('predict')}}" method="POST">
-					<label class="usa-label" for="message">
-						Paste the job description into the textbox below.
-					</label>
-					<textarea
-						class="usa-textarea"
-						id="message"
-						name="message" 
-						type="text"
-						required
-						aria-required="true"
-					></textarea>
-					<input type="submit" class="usa-button margin-top-2" value="Check Job Description">
-				</form>
-			</div>
-		</div>		
+
+<div class="usa-section">
+	<div class="grid-container">
+		<h1>How to Use This Tool</h1>
+		<section class="padding-y-2">
+			<p>
+				Ableist language is language that is offensive to people with disability. This type of language in job
+				descriptions can cause people with disabilities to feel excluded from jobs that they are qualified for.
+				This tool checks job descriptions for ableist language and suggests alternative phrasing that supports
+				more fair and inclusive hiring.
+			</p>
+		</section>
+
+		<div class="tablet:grid-col-8">
+			<h2>Get Started</h2>
+			<form class="form" action="{{ url_for('predict')}}" method="POST">
+				<label class="usa-label" for="message">
+					Paste the job description into the text box below.
+				</label>
+				<textarea class="usa-textarea" id="message" name="message" type="text" required
+					aria-required="true"></textarea>
+				<input type="submit" class="usa-button margin-top-2" value="Check Job Description">
+			</form>
+		</div>
 	</div>
+</div>
 {% endblock %}
