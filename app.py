@@ -16,7 +16,7 @@ class AbleistLanguage:
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", currPage="home")
 
 
 @app.route("/predict", methods=["POST"])
@@ -64,12 +64,13 @@ def predict():
         examples=examples,
         term_id=term_id,
         show_results=show_results,
+        currPage="home"
     )
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", currPage="about")
 
 
 if __name__ == "__main__":

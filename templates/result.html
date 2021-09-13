@@ -24,29 +24,6 @@
 			}
 		}
 	</style>
-
-	<nav aria-label="Primary navigation" class="usa-nav left-margin">
-        <div class="usa-nav__inner left-margin">
-        <button class="usa-nav__close">
-          <img src="/static/uswds-2.12.0/img/usa-icons/close.svg" role="img" alt="Close" />
-        </button>
-        <ul class="usa-nav__primary usa-accordion">
-          <li class="usa-nav__primary-item">
-          <a href="/" class="usa-nav__link usa-current">
-            <span>Home</span>
-          </a>
-          </li>
-    
-          <li class="usa-nav__primary-item">
-          <a href="{{ url_for('about') }}" class="usa-nav__link">
-            <span>About</span>
-          </a>
-          </li>
-        </ul>
-        </div>
-        </div>
-      </nav>
-    </header>
 	
 	<div class="usa-section">
 			<div class="grid-container">
@@ -58,57 +35,34 @@
 						Click on a highlighted phrase for more information  
 						</p>
 						{% endif %}
-						<hr>
 					</div>
 				</div>
 
 				<div class="grid-gap results-wrapper" >
 					<div class="results">
-						<main class="tablet:grid-col-8" id="main-content" style="width:100%;">
+						<section class="tablet:grid-col-8 width-full">
 							<div class="usa-prose">
 								<div class ="result-box">
-									<span>{{result | safe}}</span>
+									<p>{{result | safe}}</p>
 								</div>
 							</div>
-						</main>
+						</section>
 					</div>
 
 					<div class="info">
-						<div class = "tablet:grid-col-4" style="padding-left: 2em; width:100%">
+						<div class = "tablet:grid-col-4 width-full">
 							{% for term, replacements in alternatives.items() %} 
 							<div id="{{term_id.get(term)}}" data-term='{{ term }}' data-alternatives='{{ replacements|tojson }}' data-example="{{examples.get(term)}}"></div>
 							{% endfor %}
 							{% if show_results %}
-								<div class="usa-alert usa-alert--info usa-alert--no-icon">
-									<div id='output' class="usa-alert__body">
-										<h2 style="text-align: center;">Ableist Language Results</h2>
+								<div id="output__container">
+									<div id="output">
 									</div>
 								</div>
 							{% endif %}
 							</div>
 						</div>
 					</div>
-
-					<script>
-						function myFunction(id) {
-							let words = document.querySelector(`#${id}`);
-							let alt_verbs = JSON.parse(words.dataset.alternatives)
-
-							header = `<h2 class="usa-alert__heading">"${words.dataset.term}"</h2>`
-							subtitle = "<p>Below are suggested phrases to replace the highlighted language:</p>"
-
-							ul_start = "<ul>"
-							ul_end = "</ul"
-
-							example = `<p>Example: ${words.dataset.example}</p>`
-							document.getElementById('output').innerHTML = header + subtitle + ul_start;
-							for (let i = 0; i < alt_verbs.length; i++) {
-								verb = alt_verbs[i]
-								document.getElementById('output').innerHTML += `<li>${verb}</li>`
-							}
-							document.getElementById('output').innerHTML += ul_end + example
-						}
-					</script>
 				</div>
 			</div>
 	</div>	

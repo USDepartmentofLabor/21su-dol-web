@@ -1,88 +1,30 @@
 {% extends "layout.html" %}
 
-    {% block maincontent %}
-	<nav aria-label="Primary navigation" class="usa-nav left-margin">
-        <div class="usa-nav__inner left-margin">
-        <button class="usa-nav__close">
-          <img src="/static/uswds-2.12.0/img/usa-icons/close.svg" role="img" alt="Close" />
-        </button>
-        <ul class="usa-nav__primary usa-accordion">
-          <li class="usa-nav__primary-item">
-          <a href="/" class="usa-nav__link usa-current">
-            <span>Home</span>
-          </a>
-          </li>
-    
-          <li class="usa-nav__primary-item">
-          <a href="{{ url_for('about') }}" class="usa-nav__link">
-            <span>About</span>
-          </a>
-          </li>
-        </ul>
-        </div>
-        </div>
-      </nav>
-    </header>
-	
-	<div class="usa-section">
-		<div class="grid-container">
-			<div class="grid-row grid-gap">
-				<div class="tablet:grid-col-8">
-					<h1>Get Started</h1>
-			
-					<p>
-					Paste the job description into the textbox below.    
-					</p>
-							
-					<hr>
-				</div>
-			</div>
+{% block maincontent %}
 
-			<div class="grid-row grid-gap">
-				<main class="tablet:grid-col-8" id="main-content">
-					<div class="usa-prose">
-							<form class="form" action="{{ url_for('predict')}}" method="POST">
-								<fieldset class="usa-fieldset">
-								<textarea
-									class="usa-textarea usa-textarea--xl"
-									name="message" 
-									type="text"
-									required
-									aria-required="true"
-									placeholder="Enter Job Description"
-									style="max-width: 100%; min-height: 20rem; resize: none;"
-									
-								></textarea>
+<div class="usa-section">
+	<div class="grid-container">
+    <section>
+      <h1>Make Your Job Description Accessible</h1>
+      <p>
+        Ableist language is language that is offensive to people with disability. This type of language in job
+        descriptions can cause people with disabilities to feel excluded from jobs that they are qualified for.
+        This tool checks job descriptions for ableist language and suggests alternative phrasing that supports
+        more fair and inclusive hiring.
+      </p>
+    </section>
 
-								</fieldset>
-							
-					</div>
-				</main>
-				
-				<div class = "tablet:grid-col-4">
-					<div class="usa-summary-box" role="region" aria-labelledby="summary-box-key-information">
-					<div class="usa-summary-box__body">
-						<h3 class="usa-summary-box__heading" id="summary-box-key-information">
-							How To Use This Tool
-						</h3>
-						<div class="usa-summary-box__text">
-							<p style = "line-height: 2rem;">Ableist language is language that is offensive to people with disability. This type of language in job descriptions can cause people with disabilities to feel excluded from jobs that they are qualified for. This tool checks job descriptions for ableist language and suggests alternative phrasing that supports more fair and inclusive hiring.</p>
-				
-						</div>
-					</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="grid-row">
-				<div class="tablet:grid-col-8">
-					<br />
-
-					<input type="submit" class="usa-button" style="float: left" value="Check Job Description">
-				</form>
-				</div>
-			</div>
-		</div>		
+		<section class="margin-top-4 tablet:grid-col-8">
+      <h2 class="margin-bottom-0">Get Started</h2>
+			<form class="form" action="{{ url_for('predict')}}" method="POST">
+				<label class="usa-label margin-top-2 font-sans-xs" for="message">
+					Paste your job description into the text box below.
+				</label>
+				<textarea class="usa-textarea maxw-none" id="message" name="message" type="text" required
+					aria-required="true"></textarea>
+				<input type="submit" class="usa-button margin-top-2" value="Check Job Description">
+			</form>
+		</section>
 	</div>
+</div>
 {% endblock %}
